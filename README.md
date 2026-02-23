@@ -1,6 +1,5 @@
 # PAWN
-
-## Piece value Analysis With Neural networks
+Piece value Analysis With Neural networks
 
 ## Dependencies and other things
 
