@@ -39,7 +39,7 @@ export NUM_WORKERS="128" # Number of cores (1 core per worker)
 # SCRIPT SETUP
 # ------------------------------
 
-# You may need to create a new mambe environment with:
+# You may need to create a new mamba environment with:
 # module load mamba/latest
 # mamba create -n chess-env -c conda-forge python=3.9 pytorch torchvision torchaudio
 
