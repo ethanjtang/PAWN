@@ -12,8 +12,8 @@ It then takes this M-dim position representation + N-dim piece type and location
 simple MLP as input, and returns a value from [-inf,+inf] predicting a piece's value.
 
 Important things to note about the architecture:
-1. CNN position encoders have graduated dropout per layer (larger dropout for larger layers)
-2. We train 3 MLPs, 1 is a recreation from Gupta's 2023 paper while the other two scale his architecture up
+1. CNN position encoders have graduated dropout per layer (larger dropout for larger layers).
+2. We train 3 MLPs, 1 is a recreation from Gupta's 2023 paper while the other two scale his architecture up.
 3. We use relatively large patience for pval predictors (50) vs. position autoencoders (10) since
    we don't need extremely accurate position encodings (we just want to capture their "essense").
 4. Position representations do not include state information including side to move, castling rights, etc.
@@ -1653,4 +1653,5 @@ def main():
 
 # main(main)
 if __name__ == "__main__":
+
     main()
