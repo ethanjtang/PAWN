@@ -85,39 +85,6 @@ def main():
     print(f"  Piece value std: {df['piece_value'].std():.2f}")
     print()
 
-    # Cap piece values at 5x their base value based on piece type
-    # Piece values: pawn=1, knight/bishop=3, rook=5, queen=10
-    # Caps: pawn=±5, knight/bishop=±15, rook=±25, queen=±50
-    print("Capping piece values at 5x their base value by piece type...")
-
-    # Create copy of pval data
-    original_values = df['piece_value'].copy()
-
-    # Define caps for each piece type (in centipawns - cp)
-    piece_caps = {
-        'p': 500,      # 5 * 100 cp
-        'k': 1500,   # 5 * 300 cp
-        'b': 1500,   # 5 * 300 cp
-        'r': 2500,     # 5 * 500 cp
-        'q': 5000,    # 5 * 1000 cp
-        'k': 0       # Kings have no material value
-    }
-
-    # Apply caps based on piece type
-    for piece_type, cap in piece_caps.items():
-        mask = df['piece_type'].str.lower() == piece_type.lower() # handle case sensitive piece types
-        if mask.any():
-            df.loc[mask, 'piece_value'] = df.loc[mask, 'piece_value'].clip(-cap, cap)
-            capped_in_type = ((original_values[mask] != df.loc[mask, 'piece_value']).sum())
-            if capped_in_type > 0:
-                print(f"  {piece_type.capitalize()}: capped {capped_in_type:,} values (cap=±{cap})")
-
-    # Print out summary stats for total number of piece values capped
-    total_capped = (original_values != df['piece_value']).sum()
-    print(f"  Total capped: {total_capped:,} values ({total_capped/len(df)*100:.2f}%)")
-    print(f"  New piece value range: [{df['piece_value'].min()}, {df['piece_value'].max()}]")
-    print()
-
     # Split pval data at the game level (based on game ID)
     # Important to note that there will still be duplicate FENs/positions between the train and val set because different games may play the same openings/positions
     # But this removes a lot of the problems with overfitting from using a row level split for piece value data
@@ -202,4 +169,5 @@ def main():
 
 # main(main)
 if __name__ == "__main__":
+
     exit(main())
