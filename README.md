@@ -1,8 +1,4 @@
-# PAWN
-
-## <ins>P</ins>iece value <ins>A</ins>nalysis <ins>W</ins>ith <ins>N</ins>eural networks
-
----
+# PAWN: <ins>P</ins>iece value <ins>A</ins>nalysis <ins>W</ins>ith <ins>N</ins>eural networks
 
 ## Paper
 
