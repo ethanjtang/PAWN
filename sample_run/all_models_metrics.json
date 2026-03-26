@@ -1,0 +1,813 @@
+{
+  "dataset_info": {
+    "training_file": "train.parquet",
+    "validation_file": "val.parquet",
+    "training_rows": 40352,
+    "validation_rows": 10330,
+    "unique_positions_train": 2072,
+    "normalization": {
+      "mean": 57.913932394924664,
+      "std": 432.6849934862472,
+      "normalization_type": "standardization"
+    }
+  },
+  "optimizations": {
+    "optimizer": "AdamW",
+    "weight_decay": 0.0001,
+    "loss_function": "HuberLoss(delta=1.0)",
+    "normalization": "standardization (zero mean, unit variance)",
+    "mlp_batchnorm": true,
+    "graduated_dropout": true,
+    "dropout_rates": {
+      "3": [
+        0.3,
+        0.2,
+        0.1
+      ],
+      "4": [
+        0.35,
+        0.25,
+        0.15,
+        0.1
+      ],
+      "5": [
+        0.4,
+        0.3,
+        0.2,
+        0.15,
+        0.1
+      ]
+    },
+    "game_level_split": "recommended (via optimized_create_val_train_splits.py)"
+  },
+  "mlp_models": {
+    "mlp1": {
+      "model_type": "mlp1",
+      "mlp_version": "MLP #1 (12-dim)",
+      "training_samples": 40352,
+      "validation_samples": 10330,
+      "best_epoch": 51,
+      "best_val_loss": 0.06227977065877481,
+      "training_time_seconds": 46.886963844299316,
+      "config": {
+        "batch_size": 1024,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "dropout": 0.2,
+        "hidden_sizes": [
+          128,
+          64,
+          32
+        ],
+        "patience": 50
+      },
+      "input_dim": 12,
+      "improvements": [
+        "AdamW",
+        "weight_decay",
+        "HuberLoss",
+        "BatchNorm1d",
+        "standardization"
+      ]
+    },
+    "mlp2": {
+      "model_type": "mlp2",
+      "mlp_version": "MLP #2 (14-dim)",
+      "training_samples": 40352,
+      "validation_samples": 10330,
+      "best_epoch": 29,
+      "best_val_loss": 0.060439023612575096,
+      "training_time_seconds": 28.319133281707764,
+      "config": {
+        "batch_size": 1024,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "dropout": 0.2,
+        "hidden_sizes": [
+          128,
+          64,
+          32
+        ],
+        "patience": 50
+      },
+      "input_dim": 14,
+      "improvements": [
+        "AdamW",
+        "weight_decay",
+        "HuberLoss",
+        "BatchNorm1d",
+        "standardization"
+      ]
+    },
+    "chessable2023": {
+      "model_type": "chessable2023",
+      "mlp_version": "MLP #1 (12-dim)",
+      "training_samples": 40352,
+      "validation_samples": 10330,
+      "best_epoch": 79,
+      "best_val_loss": 0.061958325349471786,
+      "training_time_seconds": 45.02077507972717,
+      "config": {
+        "batch_size": 1024,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "dropout": 0.2,
+        "hidden_sizes": [
+          64,
+          32
+        ],
+        "patience": 50
+      },
+      "input_dim": 12,
+      "improvements": [
+        "AdamW",
+        "weight_decay",
+        "HuberLoss",
+        "BatchNorm1d",
+        "standardization"
+      ]
+    }
+  },
+  "cnn_models": {
+    "cnn_pos_512d_4layer": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_4layer",
+        "embedding_dim": 512,
+        "num_layers": 4,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 572,
+        "best_val_loss": 0.005357931833714247,
+        "training_time_seconds": 313.2341945171356,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_4layer"
+    },
+    "cnn_pos_512d_6layer": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_6layer",
+        "embedding_dim": 512,
+        "num_layers": 6,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 836,
+        "best_val_loss": 0.00936458446085453,
+        "training_time_seconds": 496.5739963054657,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_6layer"
+    },
+    "cnn_pos_512d_8layer": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_8layer",
+        "embedding_dim": 512,
+        "num_layers": 8,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 601,
+        "best_val_loss": 0.014356293715536594,
+        "training_time_seconds": 444.29581356048584,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_8layer"
+    },
+    "cnn_pos_512d_4layer_pval_256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_4layer",
+        "embedding_dim": 512,
+        "num_layers": 4,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 572,
+        "best_val_loss": 0.005357931833714247,
+        "training_time_seconds": 313.2341945171356,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_4layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_4layer_pval_256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.3,
+          0.2,
+          0.1
+        ],
+        "num_hidden_layers": 3,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 14,
+        "best_val_loss": 0.06056685102256862,
+        "training_time_seconds": 30.931045055389404,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_4layer_pval_512-256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_4layer",
+        "embedding_dim": 512,
+        "num_layers": 4,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 572,
+        "best_val_loss": 0.005357931833714247,
+        "training_time_seconds": 313.2341945171356,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_4layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_4layer_pval_512-256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          512,
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.35,
+          0.25,
+          0.15,
+          0.1
+        ],
+        "num_hidden_layers": 4,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 16,
+        "best_val_loss": 0.06109729984944517,
+        "training_time_seconds": 32.21792149543762,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_4layer_pval_1024-512-256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_4layer",
+        "embedding_dim": 512,
+        "num_layers": 4,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 572,
+        "best_val_loss": 0.005357931833714247,
+        "training_time_seconds": 313.2341945171356,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_4layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_4layer_pval_1024-512-256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          1024,
+          512,
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.4,
+          0.3,
+          0.2,
+          0.15,
+          0.1
+        ],
+        "num_hidden_layers": 5,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 9,
+        "best_val_loss": 0.06075591475448825,
+        "training_time_seconds": 29.43589973449707,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_6layer_pval_256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_6layer",
+        "embedding_dim": 512,
+        "num_layers": 6,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 836,
+        "best_val_loss": 0.00936458446085453,
+        "training_time_seconds": 496.5739963054657,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_6layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_6layer_pval_256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.3,
+          0.2,
+          0.1
+        ],
+        "num_hidden_layers": 3,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 19,
+        "best_val_loss": 0.06196235323494131,
+        "training_time_seconds": 33.01380658149719,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_6layer_pval_512-256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_6layer",
+        "embedding_dim": 512,
+        "num_layers": 6,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 836,
+        "best_val_loss": 0.00936458446085453,
+        "training_time_seconds": 496.5739963054657,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_6layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_6layer_pval_512-256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          512,
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.35,
+          0.25,
+          0.15,
+          0.1
+        ],
+        "num_hidden_layers": 4,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 16,
+        "best_val_loss": 0.06130000085315921,
+        "training_time_seconds": 32.21853518486023,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_6layer_pval_1024-512-256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_6layer",
+        "embedding_dim": 512,
+        "num_layers": 6,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 836,
+        "best_val_loss": 0.00936458446085453,
+        "training_time_seconds": 496.5739963054657,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_6layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_6layer_pval_1024-512-256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          1024,
+          512,
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.4,
+          0.3,
+          0.2,
+          0.15,
+          0.1
+        ],
+        "num_hidden_layers": 5,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 8,
+        "best_val_loss": 0.06193752891638062,
+        "training_time_seconds": 29.24213719367981,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_8layer_pval_256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_8layer",
+        "embedding_dim": 512,
+        "num_layers": 8,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 601,
+        "best_val_loss": 0.014356293715536594,
+        "training_time_seconds": 444.29581356048584,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_8layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_8layer_pval_256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.3,
+          0.2,
+          0.1
+        ],
+        "num_hidden_layers": 3,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 51,
+        "best_val_loss": 0.05768107724460689,
+        "training_time_seconds": 48.13551568984985,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_8layer_pval_512-256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_8layer",
+        "embedding_dim": 512,
+        "num_layers": 8,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 601,
+        "best_val_loss": 0.014356293715536594,
+        "training_time_seconds": 444.29581356048584,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_8layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_8layer_pval_512-256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          512,
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.35,
+          0.25,
+          0.15,
+          0.1
+        ],
+        "num_hidden_layers": 4,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 25,
+        "best_val_loss": 0.058193433013829315,
+        "training_time_seconds": 36.60696530342102,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    },
+    "cnn_pos_512d_8layer_pval_1024-512-256-128-64": {
+      "encoder": {
+        "model_type": "cnn_position_encoder",
+        "model_name": "cnn_pos_512d_8layer",
+        "embedding_dim": 512,
+        "num_layers": 8,
+        "unique_positions": 2072,
+        "training_positions": 1657,
+        "validation_positions": 415,
+        "best_epoch": 601,
+        "best_val_loss": 0.014356293715536594,
+        "training_time_seconds": 444.29581356048584,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "max_epochs": 10000,
+          "patience": 50
+        }
+      },
+      "embed_column": "embed_512d_8layer",
+      "pieceval": {
+        "model_type": "cnn_pieceval",
+        "model_name": "cnn_pos_512d_8layer_pval_1024-512-256-128-64",
+        "embedding_dim": 512,
+        "hidden_sizes": [
+          1024,
+          512,
+          256,
+          128,
+          64
+        ],
+        "dropout_rates": [
+          0.4,
+          0.3,
+          0.2,
+          0.15,
+          0.1
+        ],
+        "num_hidden_layers": 5,
+        "training_samples": 40352,
+        "validation_samples": 10330,
+        "best_epoch": 31,
+        "best_val_loss": 0.05777770196172324,
+        "training_time_seconds": 41.065977811813354,
+        "config": {
+          "batch_size": 1024,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 50
+        },
+        "input_features": {
+          "cnn_embedding": 512,
+          "piece_location": 14,
+          "total": 526
+        },
+        "improvements": [
+          "AdamW",
+          "weight_decay",
+          "HuberLoss",
+          "BatchNorm1d",
+          "graduated_dropout",
+          "standardization"
+        ]
+      }
+    }
+  },
+  "evaluation": {
+    "mlp1": {
+      "train_error_cp": 97.34284084184586,
+      "val_error_cp": 90.07644555643391
+    },
+    "mlp2": {
+      "train_error_cp": 97.25797595931864,
+      "val_error_cp": 89.83762213964404
+    },
+    "chessable2023": {
+      "train_error_cp": 97.50723867559783,
+      "val_error_cp": 90.01454691509258
+    },
+    "cnn_pos_512d_4layer_pval_256-128-64": {
+      "train_error_cp": 65.14222931089131,
+      "val_error_cp": 84.94305263869141
+    },
+    "cnn_pos_512d_4layer_pval_512-256-128-64": {
+      "train_error_cp": 63.65562131904901,
+      "val_error_cp": 84.20083106050792
+    },
+    "cnn_pos_512d_4layer_pval_1024-512-256-128-64": {
+      "train_error_cp": 71.10462713036621,
+      "val_error_cp": 85.96479206247191
+    },
+    "cnn_pos_512d_6layer_pval_256-128-64": {
+      "train_error_cp": 74.70128786961595,
+      "val_error_cp": 88.23838117961239
+    },
+    "cnn_pos_512d_6layer_pval_512-256-128-64": {
+      "train_error_cp": 75.26565908692152,
+      "val_error_cp": 87.28043718561531
+    },
+    "cnn_pos_512d_6layer_pval_1024-512-256-128-64": {
+      "train_error_cp": 79.30613357012606,
+      "val_error_cp": 87.2725681739739
+    },
+    "cnn_pos_512d_8layer_pval_256-128-64": {
+      "train_error_cp": 68.11525050924955,
+      "val_error_cp": 83.99555288498716
+    },
+    "cnn_pos_512d_8layer_pval_512-256-128-64": {
+      "train_error_cp": 76.10278809038256,
+      "val_error_cp": 84.71638122690408
+    },
+    "cnn_pos_512d_8layer_pval_1024-512-256-128-64": {
+      "train_error_cp": 74.94276514483929,
+      "val_error_cp": 85.92075959918218
+    }
+  }
+}
