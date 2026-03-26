@@ -1,4 +1,5 @@
-# PAWN: <ins>P</ins>iece value <ins>A</ins>nalysis <ins>W</ins>ith <ins>N</ins>eural networks
+# PAWN
+### Piece value **A**nalysis **W**ith **N**eural networks
 
 ## Paper
 
