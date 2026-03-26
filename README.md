@@ -1,6 +1,22 @@
 # PAWN
 Piece value Analysis With Neural networks
 
+## Paper
+
+Link COMING SOON!
+
+## Datasets and Models
+
+We open-source Dataset MC-large and TF along with the best MLP and MLP+CNN model configurations trained for both datasets.
+
+Datasets: https://huggingface.co/datasets/ethanjtang/PAWN-piece-value-datasets
+Models: https://huggingface.co/ethanjtang/PAWN-piece-value-predictors
+
+Both datasets also include many other, helpful, unused columns such as:
+FEN + evaluation pairs for anyone wanting to optimize position evaluations for chess engines
+Misc. metadata like side-to-move, material strings, and opening code/name for data analysis/visualization
+etc.
+
 ## Dependencies and other things
 
 ### Machine Learning
@@ -24,3 +40,10 @@ pip install numpy pandas psutil pyarrow tqdm
 
 1. Run python -u pval_train_val_split.py
 2. Run python -u train_all_models.py
+
+### Misc. Documentation
+
+"./pval_stats" contains a helper file used with slurm output files to calculate the number of timeouts per worker (when evaluating positions for calculating piece values).
+"./pvp_example" contains a Jupyter Notebook used to generate figures and piece values used in the main PAWN paper for Figures 1,3, and 5. 
+"./sample_run" includes files + output logs from a sample run completed on the Sol supercomputer using 32 games from GM Garry "Chess" Kasparov's 1985 simul against 32 chess computers (which he won 32-0 unsurprisingly).
+sample_games.pgn sourced from: https://www.chessprogramming.org/Kasparov_Simul_vs_32_Micros_Hamburg_1985
