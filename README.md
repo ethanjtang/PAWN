@@ -7,7 +7,7 @@ LINK COMING SOON!
 
 ## Datasets and Models
 
-We open-source Dataset MC-large and TF along with the best MLP and MLP+CNN model configurations trained for both datasets.
+We (myself and the voices) open-source Dataset MC-large and TF along with the best MLP and MLP+CNN model configurations trained for both datasets.
 
 - **Datasets:** [huggingface.co/datasets/ethanjtang/PAWN-piece-value-datasets](https://huggingface.co/datasets/ethanjtang/PAWN-piece-value-datasets)
 - **Models:** [huggingface.co/ethanjtang/PAWN-piece-value-predictors](https://huggingface.co/ethanjtang/PAWN-piece-value-predictors)
