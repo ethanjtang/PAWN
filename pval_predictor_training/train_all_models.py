@@ -15,7 +15,7 @@ Important things to note about the architecture:
 1. CNN position encoders have graduated dropout per layer (larger dropout for larger layers).
 2. We train 3 MLPs, 1 is a recreation from Gupta's 2023 paper while the other two scale his architecture up.
 3. We use relatively large patience for pval predictors (50) vs. position autoencoders (10) since
-   we don't need extremely accurate position encodings (we just want to capture their "essense").
+   we don't need extremely accurate position encodings (we just want to capture their "essence" or "gestalt" or "soul").
 4. Position representations do not include state information including side to move, castling rights, etc.
    This can be potentially explored in the future but likely won't add a ton of accuracy to predictions
    because they are a relatively small factor compared to the relationships between all pieces.
