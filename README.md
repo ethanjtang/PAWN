@@ -3,14 +3,14 @@
 
 ## Paper
 
-LINK COMING SOON!
+ARXIV LINK COMING SOON!
 
 ## Datasets and Models
 
-We (myself and the voices) open-source Dataset MC-large and TF along with the best MLP and MLP+CNN model configurations trained for both datasets.
+We open-source Dataset MC-large and TF along with the best MLP and MLP+CNN model configurations trained for both datasets.
 
-- **Datasets:** [huggingface.co/datasets/ethanjtang/PAWN-piece-value-datasets](https://huggingface.co/datasets/ethanjtang/PAWN-piece-value-datasets)
-- **Models:** [huggingface.co/ethanjtang/PAWN-piece-value-predictors](https://huggingface.co/ethanjtang/PAWN-piece-value-predictors)
+[![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Datasets-yellow?style=for-the-badge)](https://huggingface.co/datasets/ethanjtang/PAWN-piece-value-datasets) <br>
+[![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-Models-yellow?style=for-the-badge)](https://huggingface.co/ethanjtang/PAWN-piece-value-predictors) <br>
 
 Both datasets also include many other helpful and unused columns such as:
 
@@ -24,6 +24,7 @@ Both datasets also include many other helpful and unused columns such as:
 ```bash
 pip install torch torchvision torchaudio scikit-learn
 ```
+> torchvision and torchaudio are likely redundant
 
 ### Chess Stuff
 
@@ -37,7 +38,7 @@ pip install python-chess stockfish
 pip install numpy pandas psutil pyarrow tqdm
 ```
 
-> Please reference shell scripts included in each folder for additional information about how to run each step.
+> Please reference shell scripts included in each folder for additional information about how to run each step!
 
 ## How to Run This Code
 
