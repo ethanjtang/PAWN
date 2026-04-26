@@ -10,10 +10,6 @@ Incorporating intermediate position representations derived using a CNN autoenco
 
 ### TLDR^2
 
-Context gives ok predictions; no context gives uninformed/bad predictions.
-
-### TLDR^3
-
 All ♝s on g7 are created equal, but some ♝s on g7 are more equal than others.
 
 ## Datasets and Models
