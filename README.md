@@ -1,7 +1,8 @@
 # PAWN
-> <ins>P</ins>iece value <ins>A</ins>nalysis <ins>W</ins>ith <ins>N</ins>eural networks <br>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2604.15585-b31b1b.svg?style=for-the-badge)](https://arxiv.org/abs/2604.15585) <br>
+
+> <ins>P</ins>iece value <ins>A</ins>nalysis <ins>W</ins>ith <ins>N</ins>eural networks <br>
 
 ### TLDR
 
